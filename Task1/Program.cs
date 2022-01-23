@@ -15,11 +15,49 @@ namespace Task1
             private DateTime _birthDate;
             private readonly DateTime _registrationDate;
 
+            public string Login
+            {
+                get { return _login; }
+                set
+                {
+                    if (value != null)
+                        _login = value;
+                    else
+                        Console.WriteLine("Wrong login");
+                }
+            }
+
+            public string Name
+            {
+                get { return _name; }
+                set
+                {
+                    if (value != null)
+                        _name = value;
+                    else
+                        Console.WriteLine("Wrong input");
+                }
+            }
+
+            public string SecondName
+            {
+                get { return _secondName; }
+                set
+                {
+                    if (value != null)
+                        _secondName = value;
+                    else
+                        Console.WriteLine("Wrong input");
+                }
+            }
+
+            public int Age => _age;
+
             public User(string login, string name, string secondName, DateTime birthDate, DateTime registrationDate)
             {
-                _login = login;
-                _name = name;
-                _secondName = secondName;
+                Login = login;
+                Name = name;
+                SecondName = secondName;
                 _birthDate = birthDate;
                 _age = registrationDate.Year - birthDate.Year;
                 if (birthDate.Date > registrationDate.AddYears(-_age)) _age--;
